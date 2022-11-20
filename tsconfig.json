@@ -22,9 +22,8 @@
     "experimentalDecorators": true
   },
   "include": [
-    "./packages/*/src",
-    "./packages/*/__tests__",
-    "./test",
+    "./src",
+    "./__tests__",
   ],
   "exclude": [
     "node_modules",
