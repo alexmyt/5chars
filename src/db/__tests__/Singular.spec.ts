@@ -160,40 +160,31 @@ describe('Singular dictionary', () => {
         charCount: 5,
         charOptions: [
           {
-            char: 'в', isInclude: false, place: -1, wrongPlaces: [0],
+            char: 'о', isInclude: false, place: 0, wrongPlaces: [0],
           },
           {
-            char: 'о', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'м', isInclude: false, place: -1, wrongPlaces: [2, 3],
           },
           {
             char: 'л', isInclude: false, place: -1, wrongPlaces: [2],
           },
           {
-            char: 'н', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'е', isInclude: false, place: -1, wrongPlaces: [2, 3],
           },
           {
-            char: 'а', isInclude: true, place: 4, wrongPlaces: [],
+            char: 'т', isInclude: true, place: 4, wrongPlaces: [],
           },
           {
-            char: 'г', isInclude: false, place: -1, wrongPlaces: [0],
+            char: 'п', isInclude: true, place: 0, wrongPlaces: [0],
           },
           {
-            char: 'р', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'у', isInclude: false, place: -1, wrongPlaces: [2, 3],
           },
           {
-            char: 'е', isInclude: true, place: 2, wrongPlaces: [],
+            char: 'н', isInclude: false, place: -1, wrongPlaces: [2],
           },
           {
-            char: 'з', isInclude: false, place: -1, wrongPlaces: [2, 3],
-          },
-          {
-            char: 'с', isInclude: false, place: -1, wrongPlaces: [0],
-          },
-          {
-            char: 'х', isInclude: false, place: -1, wrongPlaces: [2, 3],
-          },
-          {
-            char: 'м', isInclude: false, place: 2, wrongPlaces: [],
+            char: 'к', isInclude: false, place: -1, wrongPlaces: [2, 3],
           },
         ],
       };
@@ -201,8 +192,9 @@ describe('Singular dictionary', () => {
       const res = await dict.filter(filter);
 
       expect(res.length).toBeLessThanOrEqual(10);
-      expect(res).not.toEqual(expect.arrayContaining(['волна']));
-      expect(res).toEqual(expect.arrayContaining(['диета']));
+      expect(res).not.toEqual(expect.arrayContaining(['омлет']));
+      expect(res).not.toEqual(expect.arrayContaining(['пункт']));
+      expect(res).toEqual(expect.arrayContaining(['пират']));
     });
 
     test.only('By word count only 2', async () => {
@@ -210,40 +202,60 @@ describe('Singular dictionary', () => {
         charCount: 5,
         charOptions: [
           {
-            char: 'ж', isInclude: true, place: 0, wrongPlaces: [0],
+            char: 'з', isInclude: false, place: -1, wrongPlaces: [0],
           },
           {
-            char: 'и', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'е', isInclude: false, place: -1, wrongPlaces: [],
           },
           {
-            char: 'з', isInclude: false, place: -1, wrongPlaces: [2],
+            char: 'м', isInclude: false, place: 0, wrongPlaces: [2],
           },
           {
-            char: 'н', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'л', isInclude: false, place: 2, wrongPlaces: [3],
           },
           {
-            char: 'ь', isInclude: false, place: 4, wrongPlaces: [],
+            char: 'я', isInclude: false, place: -1, wrongPlaces: [0, 4],
           },
           {
-            char: 'е', isInclude: true, place: -1, wrongPlaces: [1],
+            char: 'а', isInclude: true, place: 4, wrongPlaces: [0],
           },
           {
-            char: 'р', isInclude: false, place: -1, wrongPlaces: [2],
+            char: 'а', isInclude: true, place: 1, wrongPlaces: [0],
           },
           {
-            char: 'л', isInclude: false, place: -1, wrongPlaces: [2, 3],
+            char: 'в', isInclude: false, place: -1, wrongPlaces: [],
           },
           {
-            char: 'о', isInclude: true, place: -1, wrongPlaces: [4],
+            char: 'т', isInclude: false, place: 0, wrongPlaces: [2],
+          },
+          {
+            char: 'о', isInclude: false, place: 2, wrongPlaces: [3],
+          },
+          {
+            char: 'р', isInclude: false, place: -1, wrongPlaces: [0, 4],
+          },
+          {
+            char: 'б', isInclude: false, place: -1, wrongPlaces: [],
+          },
+          {
+            char: 'у', isInclude: false, place: 0, wrongPlaces: [2],
+          },
+          {
+            char: 'д', isInclude: false, place: 2, wrongPlaces: [3],
+          },
+          {
+            char: 'к', isInclude: true, place: 3, wrongPlaces: [0, 4],
+          },
+          {
+            char: 'г', isInclude: false, place: 0, wrongPlaces: [2],
+          },
+          {
+            char: 'й', isInclude: false, place: 2, wrongPlaces: [3],
           },
         ],
       };
 
       const res = await dict.filter(filter);
-
-      expect(res.length).toBeLessThanOrEqual(10);
-      expect(res).not.toEqual(expect.arrayContaining(['волна']));
-      expect(res).toEqual(expect.arrayContaining(['диета']));
     });
   });
 });
